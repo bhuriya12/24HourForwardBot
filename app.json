@@ -1,0 +1,36 @@
+  "name": "bhuriya24hrforward",
+  "description": "Telegram Bot for message forwarding",
+  "repository": "https://github.com/bhuriya12/24HourForwardBot",
+  "keywords": ["telegram", "bot", "python"],
+  "env": {
+    "TOKEN": {
+      "description": "Telegram Bot Token",
+      "required": true
+    },
+    "FORWARD_TO_CHANNEL": {
+      "description": "Telegram Channel Username for forwarding messages",
+      "required": true
+    },
+    "SLEEP_TIME": {
+      "description": "Sleep time in seconds between message batches",
+      "value": 1500
+    }
+  },
+  "addons": [
+    "heroku/python"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "python your_bot_script.py"
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
